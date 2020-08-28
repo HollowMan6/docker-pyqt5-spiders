@@ -8,7 +8,7 @@ on:
 
 env:
   # Change variable to your image's name.
-  IMAGE_NAME: hollowman6/docker-pyqt5-spiders
+  IMAGE_NAME: docker-pyqt5-spiders
 
 jobs:
   # Push image to GitHub Packages.
