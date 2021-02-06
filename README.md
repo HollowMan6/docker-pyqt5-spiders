@@ -19,9 +19,9 @@ My docker image to run my Python based APPs / Spiders.
 
 运行我的Python程序/爬虫的Docker镜像
 
-Tested on Ubuntu
+Tested on Linux
 
-经过测试，在Ubuntu上可用
+经过测试，在Linux上可用
 
 https://github.com/HollowMan6/docker-pyqt5-spiders
 
