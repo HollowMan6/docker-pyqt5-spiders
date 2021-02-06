@@ -50,7 +50,7 @@ RUN apt-get update \
     && rm -rf google-chrome*.deb \
     && apt-get install -f \
     && apt-get --purge remove -y \
-      locales
+      locales \
     && apt-get autoremove -y \
     && apt-get clean
     
