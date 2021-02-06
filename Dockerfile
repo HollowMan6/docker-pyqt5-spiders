@@ -12,7 +12,6 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN adduser --quiet --disabled-password hollowman
 ENV LANG zh_CN.UTF-8
 ENV LANGUAGE zh_CN:zh
-ENV LC_ALL zh_CN.UTF-8
 
 RUN apt-get update \
     && apt-get install -y \

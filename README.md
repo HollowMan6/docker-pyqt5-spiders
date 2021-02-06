@@ -32,7 +32,7 @@ https://hub.docker.com/r/hollowman6/docker-pyqt5-spiders
 **Run 运行**
 
 ```bash
-docker run -it \
+docker run -it --privileged \
     -v /tmp/.X11-unix:/tmp/.X11-unix \
     -v $(pwd)/{{your python files directory}}:/app \
     -e DISPLAY=$DISPLAY \
