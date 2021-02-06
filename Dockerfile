@@ -48,17 +48,27 @@ RUN apt-get update \
     && wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb \
     && dpkg -i google-chrome*.deb \
     && rm -rf google-chrome*.deb \
-    && apt-get install -f && apt-get clean
+    && apt-get install -f \
+    && apt-get --purge remove -y \
+      locales
+    && apt-get autoremove -y \
+    && apt-get clean
     
-RUN CHROME_VERSION=$(google-chrome --version | cut -f 3 -d ' ' | cut -d '.' -f 1) \
+RUN apt-get install -y \
+      unzip \
+    && CHROME_VERSION=$(google-chrome --version | cut -f 3 -d ' ' | cut -d '.' -f 1) \
     && CHROMEDRIVER_RELEASE=$(wget -q -O - http://chromedriver.storage.googleapis.com/LATEST_RELEASE_${CHROME_VERSION}) \
     && wget -O /tmp/chromedriver_linux64.zip "http://chromedriver.storage.googleapis.com/$CHROMEDRIVER_RELEASE/chromedriver_linux64.zip" \
     && cd /tmp \
     && unzip chromedriver_linux64.zip \
     && rm -rf chromedriver_linux64.zip \
-    && sudo mv chromedriver /usr/local/bin/chromedriver \
-    && sudo chmod +x /usr/local/bin/chromedriver \
-    && chromedriver --version
+    && mv chromedriver /usr/local/bin/chromedriver \
+    && chmod +x /usr/local/bin/chromedriver \
+    && chromedriver --version \
+    && apt-get --purge remove -y \
+      unzip \
+    && apt-get autoremove -y \
+    && apt-get clean
 
 RUN pip3 install --upgrade pip
 RUN pip3 install --no-cache-dir requests pdfminer3k lxml numpy opencv-python opencv-contrib-python pillow selenium pyecharts pytesseract xlwt
