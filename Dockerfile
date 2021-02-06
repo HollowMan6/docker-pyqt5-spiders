@@ -19,7 +19,7 @@ RUN apt-get update \
       python3 \
       python3-pyqt5 \
       python3-pip \
-      curl \
+      wget \
       libgl1-mesa-glx \
       libxss1 \
       libappindicator1 \
@@ -45,14 +45,14 @@ RUN apt-get update \
       locales \
       ttf-wqy-microhei \
     && locale-gen zh_CN.UTF-8 \
-    && curl -o google-chrome-stable_current_amd64.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb \
+    && wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb \
     && dpkg -i google-chrome*.deb \
     && rm -rf google-chrome*.deb \
     && apt-get install -f && apt-get clean
     
 RUN CHROME_VERSION=$(google-chrome --version | cut -f 3 -d ' ' | cut -d '.' -f 1) \
-    && CHROMEDRIVER_RELEASE=$(curl --location --fail --retry 3 http://chromedriver.storage.googleapis.com/LATEST_RELEASE_${CHROME_VERSION}) \
-    && curl --silent --show-error --location --fail --retry 3 --output /tmp/chromedriver_linux64.zip "http://chromedriver.storage.googleapis.com/$CHROMEDRIVER_RELEASE/    chromedriver_linux64.zip" \
+    && CHROMEDRIVER_RELEASE=$(wget -q -O - http://chromedriver.storage.googleapis.com/LATEST_RELEASE_${CHROME_VERSION}) \
+    && wget -O /tmp/chromedriver_linux64.zip "http://chromedriver.storage.googleapis.com/$CHROMEDRIVER_RELEASE/chromedriver_linux64.zip" \
     && cd /tmp \
     && unzip chromedriver_linux64.zip \
     && rm -rf chromedriver_linux64.zip \
