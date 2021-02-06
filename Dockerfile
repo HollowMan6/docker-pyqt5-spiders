@@ -16,7 +16,7 @@ RUN apt-get update \
       python3 \
       python3-pyqt5 \
       python3-pip \
-      wget \
+      curl \
       libgl1-mesa-glx \
       libxss1 \
       libappindicator1 \
@@ -43,7 +43,7 @@ RUN apt-get update \
       language-pack-zh-hans \
       ttf-wqy-microhei \
     && locale-gen zh_CN.UTF-8 \
-    && wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb \
+    && curl https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb \
     && dpkg -i google-chrome*.deb \
     && rm -rf google-chrome*.deb \
     && apt-get install -f && apt-get clean
