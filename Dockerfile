@@ -10,9 +10,9 @@ LABEL maintainer="Hollow Man <hollowman@hollowman.ml>"
 ENV DEBIAN_FRONTEND=noninteractive
 
 RUN adduser --quiet --disabled-password hollowman
-ENV LANG zh_CN.UTF-8
-ENV LANGUAGE zh_CN:zh
-ENV LC_ALL zh_CN.UTF-8
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US:en
+ENV LC_ALL en_US.UTF-8
 
 RUN apt-get update \
     && apt-get install -y \
@@ -44,7 +44,7 @@ RUN apt-get update \
       dbus \
       locales \
       ttf-wqy-microhei \
-    && locale-gen zh_CN.UTF-8 \
+    && locale-gen en_US.UTF-8 \
     && curl https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb \
     && dpkg -i google-chrome*.deb \
     && rm -rf google-chrome*.deb \
