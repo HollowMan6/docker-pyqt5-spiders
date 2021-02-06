@@ -40,9 +40,8 @@ RUN apt-get update \
       python3-tk \
       dbus \
       locales \
-      language-pack-zh-hans \
       ttf-wqy-microhei \
-    && locale-gen zh_CN.UTF-8 \
+    && locale-gen en_US.UTF-8 \
     && curl https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb \
     && dpkg -i google-chrome*.deb \
     && rm -rf google-chrome*.deb \
