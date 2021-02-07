@@ -37,7 +37,7 @@ docker run -it --privileged \
     -v $(pwd)/{{your python files directory}}:/app \
     -e DISPLAY=$DISPLAY \
     -u hollowman \
-    hollowman6/docker-pyqt5-spiders python3 /app/{{your python files}}
+    hollowman6/docker-pyqt5-spiders python3 {{your python files}}
 ```
 
 Note: Please replace content `{{...}}` with your own need.
