@@ -71,6 +71,7 @@ RUN apt-get install -y \
 
 RUN pip3 install --upgrade pip
 RUN pip3 install --no-cache-dir requests pdfminer3k lxml numpy opencv-python opencv-contrib-python pillow selenium pyecharts pytesseract xlwt
+RUN sh -c 'cd /app; exec "${SHELL:-sh}"'
 
 CMD [ "sh", "-c", "/etc/init.d/dbus start" ]
 ENTRYPOINT [ "cd", "/app" ]
