@@ -2,7 +2,7 @@ FROM ubuntu:latest
 
 MAINTAINER Hollow Man <hollowman@hollowman.ml>
 
-LABEL version="1.0.2"
+LABEL version="1.0.3"
 LABEL repository="https://github.com/HollowMan6/docker-pyqt5-spiders"
 LABEL homepage="https://hollowman.ml/"
 LABEL maintainer="Hollow Man <hollowman@hollowman.ml>"
@@ -73,3 +73,4 @@ RUN pip3 install --upgrade pip
 RUN pip3 install --no-cache-dir requests pdfminer3k lxml numpy opencv-python opencv-contrib-python pillow selenium pyecharts pytesseract xlwt
 
 CMD [ "sh", "-c", "/etc/init.d/dbus start" ]
+ENTRYPOINT [ "cd", "/app" ]
